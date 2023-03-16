@@ -1,0 +1,13 @@
+name: Testing unit_test with Nondex tool. 
+run-name: Testing unit_test with Nondex tool. 
+on: [push] 
+jobs: 
+ Testing-with-Nondex: 
+ runs-on: ubuntu-latest 
+ steps: 
+ - uses: actions/checkout@v2 
+ - name: Compile with Maven 
+ run: mvn clean install -DskipTests -pl extensions-core/kafka-indexing-service -am 
+ - name: Run test with Nondex tool 
+ run: mvn -pl extensions-core/kafka-indexing-service edu.illinois:nondex-maven-plugin:2.1.1:nondex -Dtest=org.apache.druid.indexing.kafka.supervisor.KafkaSupervisorSpecTest#testSerdeWithInputFormat
+ 

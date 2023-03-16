@@ -1568,7 +1568,7 @@
                         <!-- locale settings must be set on the command line before startup -->
                         <!-- set default options -->
                         <argLine>
-                            @{jacocoArgLine}
+                            ${jacocoArgLine}
                             ${jdk.surefire.argLine}
                             -Xmx1500m
                             -XX:MaxDirectMemorySize=2500m
